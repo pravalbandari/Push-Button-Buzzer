@@ -1,0 +1,15 @@
+const int buttonPin = 2;   // push button
+const int buzzerPin = 8;   // buzzer
+
+void setup() {
+  pinMode(buttonPin, INPUT_PULLUP);  // internal pull-up, no resistor needed
+  pinMode(buzzerPin, OUTPUT);
+}
+
+void loop() {
+  if (digitalRead(buttonPin) == LOW) {   // button pressed
+    tone(buzzerPin, 1000);               // 1 kHz tone
+  } else {                               // button released
+    noTone(buzzerPin);                   // stop immediately
+  }
+}
